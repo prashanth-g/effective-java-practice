@@ -27,6 +27,7 @@ public class PhoneNumber {
 
   @Override
   public boolean equals(Object object) {
+    if(this == object) return true; // Check Reflex
     if(object instanceof PhoneNumber) {
       PhoneNumber other = (PhoneNumber) object;
       return this.number == other.number && this.areaCode == other.areaCode;
