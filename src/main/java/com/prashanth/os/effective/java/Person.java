@@ -2,6 +2,8 @@ package com.prashanth.os.effective.java;
 
 import static com.google.common.base.Preconditions.checkState;
 
+import com.google.common.base.MoreObjects;
+
 public class Person {
 
   private final String name;
@@ -18,7 +20,16 @@ public class Person {
     this.prefix = prefix;
   }
 
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(this).add("Prefix", prefix)
+        .add("Title", title)
+        .add("Name", name)
+        .add("Surname", surname).toString();
+  }
+
   public static class Builder {
+
     private final String name;
     private final String surname;
 
@@ -48,5 +59,7 @@ public class Person {
       checkState(title != null && prefix != null);
       return new Person(title, name, surname, prefix);
     }
+
+
   }
 }
