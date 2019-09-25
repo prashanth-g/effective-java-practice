@@ -28,6 +28,10 @@ public class Person {
         .add("Surname", surname).toString();
   }
 
+  public static Builder builder(String name, String surname) {
+    return new Builder(name, surname);
+  }
+
   public static class Builder {
 
     private final String name;
@@ -39,10 +43,6 @@ public class Person {
     private Builder(String name, String surname) {
       this.name = name;
       this.surname = surname;
-    }
-
-    public static Builder of(String name, String surname) {
-      return new Builder(name, surname);
     }
 
     public Builder title(String title) {
